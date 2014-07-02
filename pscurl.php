@@ -19,6 +19,7 @@ function mylog($str, $debug) {
 }
 
 function getImages($scraper, $pdata, $tags) {
+    // images are between these tags
     $images = $scraper->getTagData($pdata,
                                    $tags['images']['start'],
                                    $tags['images']['end']);
@@ -44,7 +45,7 @@ mylog('START scraping', $tags['debug']);
 // need to get the number of pages first, so call this outside the loop the first time
 $scraper->curl($mainUrl);
 $pdata = $scraper->pageData();
-// this is where the pics are
+// number of pages tags
 $imgCount = $scraper->getTagData($pdata,
                           $tags['pages']['start'],
                           $tags['pages']['end']);
@@ -60,7 +61,6 @@ for ($n = 2; $n < $npages; $n++) {
     getImages($scraper, $pdata, $tags);
  }
 
-//mylog($pageCountAr, $debug);
 mylog($pageCount . ':: ' . $npages, $tags['debug']);
 mylog('** DONE **', $tags['debug']);
 ?>
