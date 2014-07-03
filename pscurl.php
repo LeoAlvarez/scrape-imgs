@@ -61,6 +61,6 @@ for ($n = 2; $n < $npages; $n++) {
     getImages($scraper, $pdata, $tags);
  }
 
-mylog($pageCount . ':: ' . $npages, $tags['debug']);
+mylog('npages: ' . $npages, $tags['debug']);
 mylog('** DONE **', $tags['debug']);
 ?>
